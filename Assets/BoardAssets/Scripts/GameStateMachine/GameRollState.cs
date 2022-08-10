@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameRollState : GameBaseState
 {
 
-    int _diceNum = 4;
+    int _diceRemaining;
     float _maxRollInterval = 0.5f;
     float _rollInterval;
 
@@ -19,6 +19,7 @@ public class GameRollState : GameBaseState
 
     public override void EnterState(GameStateManager game)
     {
+        Debug.Log("Entered Roll State");
         _InitializeVariables(game);
         _RollDie(game);
     }
@@ -31,7 +32,9 @@ public class GameRollState : GameBaseState
 
     public override void ExitState(GameStateManager game)
     {
-       _GetDiceValues(game);
+        _GetDiceValues(game);
+        game.camController.TransitionCam(game.camController.rollSelectCam);
+        _SetDiceStates(game);
     }
 
 
@@ -40,14 +43,17 @@ public class GameRollState : GameBaseState
 
     void _RollDie(GameStateManager game)
     {
-        _newDie = Rigidbody.Instantiate(game.dieObject,game.diceSpawnTransform);
-        game.dieList.Add(_newDie);
-        _diceNum--;
+        _newDie = GameObject.Instantiate(game.dieObject,game.diceSpawnTransform);
+        game.dieRBList.Add(_newDie);
+        _newDie.GetComponent<DieStateManager>().ID = game.numberOfDice - _diceRemaining;
+        _newDie.GetComponent<DieStateManager>().rollSelectCam = game.camController.rollSelectCam;
+        _newDie.GetComponent<DieStateManager>().numDice = game.numberOfDice;
+        _diceRemaining--;
     }
 
     bool _CheckAllDiceStopped(GameStateManager game)
     {
-        foreach (Rigidbody _die in game.dieList)
+        foreach (Rigidbody _die in game.dieRBList)
         {
             if (_die.velocity != Vector3.zero || _die.angularVelocity != Vector3.zero)
                 return false;
@@ -59,7 +65,7 @@ public class GameRollState : GameBaseState
     {
         _rollInterval -= Time.deltaTime;
 
-        if (_diceNum > 0 && _rollInterval <= 0)
+        if (_diceRemaining > 0 && _rollInterval <= 0)
         {
             _RollDie(game);
             _rollInterval = _maxRollInterval;
@@ -69,14 +75,15 @@ public class GameRollState : GameBaseState
     void _InitializeVariables(GameStateManager game)
     {
         _rollInterval = _maxRollInterval;
-        game.dieList = new List<Rigidbody>();
+        game.dieRBList = new List<Rigidbody>();
         game.dicePool = new List<int>();
         _countDown = _maxCountDown;
+        _diceRemaining = game.numberOfDice;
     }
 
     void _GetDiceValues(GameStateManager game)
     {
-        foreach (Rigidbody _die in game.dieList)
+        foreach (Rigidbody _die in game.dieRBList)
         {
             game.dicePool.Add(_die.GetComponent<DieStateManager>().GetSideFaceUp());
         }
@@ -92,5 +99,13 @@ public class GameRollState : GameBaseState
 
         if (_countDown <= 0 || _maxCountDown <= 0)
             game.SwitchState(game.idleState);
+    }
+
+    void _SetDiceStates(GameStateManager game)
+    {
+        foreach (Rigidbody _die in game.dieRBList)
+        {
+            _die.GetComponent<DieStateManager>().SwitchState(_die.GetComponent<DieStateManager>().moveState);
+        }
     }
 }

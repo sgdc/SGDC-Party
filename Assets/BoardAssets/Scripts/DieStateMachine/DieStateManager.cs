@@ -13,6 +13,13 @@ public class DieStateManager : MonoBehaviour
     public Rigidbody rb;
     [HideInInspector]
     public Transform tr;
+    [HideInInspector]
+    public int ID;
+    [HideInInspector]
+    public int numDice;
+
+    [HideInInspector]
+    public Camera rollSelectCam;
 
     void Start()
     {
