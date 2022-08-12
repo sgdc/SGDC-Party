@@ -43,11 +43,11 @@ public class DieMoveState : DieBaseState
         switch (die.GetSideFaceUp())
         {
             case 1:
-                _faceUpDir = -die.transform.up;
+                _faceUpDir = -1 * die.transform.up;
                 _rotTarget = new Vector3(90, 0, 0);
                 break;
             case 2:
-                _faceUpDir = -die.transform.forward;
+                _faceUpDir = -1 * die.transform.forward;
                 _rotTarget = new Vector3(0, 0, 0);
                 break;
             case 3:
@@ -55,7 +55,7 @@ public class DieMoveState : DieBaseState
                 _rotTarget = new Vector3(0, 90, 0);
                 break;
             case 4:
-                _faceUpDir = -die.transform.right;
+                _faceUpDir = -1 * die.transform.right;
                 _rotTarget = new Vector3(0, 270, 0);
                 break;
             case 5:

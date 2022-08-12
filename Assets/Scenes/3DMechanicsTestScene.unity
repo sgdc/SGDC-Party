@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 17842073}
   - component: {fileID: 17842072}
   m_Layer: 0
-  m_Name: Tile 3
+  m_Name: Tile3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -270,7 +270,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 63ae3bc1e0b8b4c41bffdb480ba64155, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -416,6 +416,7 @@ MonoBehaviour:
   currentTile: {fileID: 992783511}
   moveTime: 2
   roll: 3
+  toMove: 3
 --- !u!4 &527681812
 Transform:
   m_ObjectHideFlags: 0
@@ -499,7 +500,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 63ae3bc1e0b8b4c41bffdb480ba64155, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -719,6 +720,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 9193627975879009083, guid: 647e1e0334918c245af512787070f33e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 63ae3bc1e0b8b4c41bffdb480ba64155, type: 2}
     - target: {fileID: 9193627977039333159, guid: 647e1e0334918c245af512787070f33e, type: 3}
       propertyPath: m_Name
       value: Tile4
@@ -946,7 +951,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 8ac23077330927a448a83b05f5d4c74f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1232,6 +1237,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 9193627975879009083, guid: 647e1e0334918c245af512787070f33e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 63ae3bc1e0b8b4c41bffdb480ba64155, type: 2}
     - target: {fileID: 9193627977039333159, guid: 647e1e0334918c245af512787070f33e, type: 3}
       propertyPath: m_Name
       value: Tile1

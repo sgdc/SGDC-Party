@@ -17,6 +17,7 @@ public class PlayerStateManager : MonoBehaviour
     public float moveTime;
 
     public int roll = 0;
+    public int toMove = 0;
 
     
 

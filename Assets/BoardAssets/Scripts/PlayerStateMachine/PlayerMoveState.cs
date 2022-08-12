@@ -6,6 +6,7 @@ public class PlayerMoveState : PlayerBaseState
 {
     Vector3 _nextTilePos;
     Vector3 _moveVector;
+    
 
     public override void EnterState(PlayerStateManager player)
     {
@@ -18,14 +19,20 @@ public class PlayerMoveState : PlayerBaseState
 
     public override void UpdateState(PlayerStateManager player)
     {
-        if ((_nextTilePos - player.transform.position).magnitude <= (_moveVector * Time.deltaTime).magnitude)
+        if(player.toMove > 0)
         {
-            player.transform.position = _nextTilePos;
-            player.currentTile = player.currentTile.GetComponent<TileClass>().nextTile[0];
-            player.SwitchState(player.idleState);
+            if ((_nextTilePos - player.transform.position).magnitude <= (_moveVector * Time.deltaTime).magnitude)
+            {
+                Debug.Log("toMove = " + player.toMove + ", currentTile = " + player.currentTile);
+                player.transform.position = _nextTilePos;
+                player.currentTile = player.currentTile.GetComponent<TileClass>().nextTile[0];
+                player.SwitchState(player.idleState);
+                player.toMove-=1;
+            }
+            else
+                player.transform.position += _moveVector * Time.deltaTime;
         }
-        else
-            player.transform.position += _moveVector * Time.deltaTime;
+
     }
     public override void ExitState(PlayerStateManager player)
     {

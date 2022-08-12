@@ -8,6 +8,7 @@ public class PlayerRollState : PlayerBaseState
     public override void EnterState(PlayerStateManager player)
     {
         player.roll = Random.Range(1, 6);
+        player.toMove = player.roll;
         player.SwitchState(player.moveState);
     }
 

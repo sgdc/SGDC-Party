@@ -22,11 +22,12 @@ public class CameraStateManager : MonoBehaviour
     {
         InitializeVariables();
 
+        // Setting our current state and initial camera, then setting those two to be the active state/camera
+
         currentState = idleState;
         currentCamera = diceCam;
 
         SwitchCamera(currentCamera);
-
         currentState.EnterState(this);
     }
 
@@ -59,6 +60,7 @@ public class CameraStateManager : MonoBehaviour
 
     private void InitializeVariables()
     {
+        //Here, we get a list of all cameras in the scene and set them to the inactive state
         Camera[]  _camArray = {rollSelectCam, diceCam};
         foreach (Camera cam in _camArray)
         {
