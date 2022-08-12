@@ -10,20 +10,23 @@ public class GameStateManager : MonoBehaviour
     public GameRollState rollState = new GameRollState();
     public GameRollSelectionState rollSelState = new GameRollSelectionState();
 
-    public int numberOfDice = 4;
-    [HideInInspector]
-    public List<int> turnOrder;
-    [HideInInspector]
-    public List<int> dicePool;
+    //Player and GameInfo
+    public int numberofPlayers;
+    [HideInInspector] public List<int> turnOrder;
+    public List<Material> playerMaterialList;
 
+    //Dice info
+    public int numberOfDice = 4;
     public Rigidbody dieObject;
     public Transform diceSpawnTransform; 
-    [HideInInspector]
-    public List<Rigidbody> dieRBList;
+    [HideInInspector] public List<Rigidbody> dieRBList;
+    [HideInInspector] public List<int> dicePool;
 
+    //Cam info
     public GameObject _camControllerOBJ;
-    [HideInInspector]
-    public CameraStateManager camController;
+    [HideInInspector] public CameraStateManager camController;
+
+    
 
     void Start()
     {

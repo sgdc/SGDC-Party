@@ -8,5 +8,8 @@ public class BasicTile : TileClass
     public override GameObject[] nextTile { get { return initNextTile; } }
     public override GameObject[] previousTile { get { return initPreviousTile; } }
 
+    public bool tileOccupied = false;
+    
+
 
 }

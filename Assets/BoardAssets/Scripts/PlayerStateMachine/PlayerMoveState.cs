@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public class PlayerMoveState : PlayerBaseState
 {
@@ -27,10 +28,20 @@ public class PlayerMoveState : PlayerBaseState
                 player.transform.position = _nextTilePos;
                 player.currentTile = player.currentTile.GetComponent<TileClass>().nextTile[0];
                 player.SwitchState(player.idleState);
+                if(player.currentTile.GetComponent<TileClass>().previousTile[0].GetComponent<BasicTile>().tileOccupied)
+                {
+                    player.currentTile.GetComponent<TileClass>().previousTile[0].transform.GetChild(0).GetComponent<Renderer>().material  = (Material)AssetDatabase.LoadAssetAtPath("Assets/BoardAssets/Materials/TestTileUnoccupiedMat.mat", typeof(Material));
+                }
+                player.currentTile.GetComponent<BasicTile>().tileOccupied = true;
+                player.currentTile.transform.GetChild(0).GetComponent<Renderer>().material = (Material)AssetDatabase.LoadAssetAtPath("Assets/BoardAssets/Materials/TestTileOccupiedMat.mat", typeof(Material));
                 player.toMove-=1;
             }
             else
+            {
+
                 player.transform.position += _moveVector * Time.deltaTime;
+            }
+            
         }
 
     }
