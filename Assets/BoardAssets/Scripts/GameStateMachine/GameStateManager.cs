@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class GameStateManager : MonoBehaviour
 {
+    //State info
     GameBaseState currentState;
     public GameIdleState idleState = new GameIdleState();
     public GameMinigameState minigameState = new GameMinigameState();
     public GameRollState rollState = new GameRollState();
     public GameRollSelectionState rollSelState = new GameRollSelectionState();
 
-    //Player and GameInfo
+    //Player and Turn info
     public int numberofPlayers;
-    [HideInInspector] public List<int> turnOrder;
     public List<Material> playerMaterialList;
+    [HideInInspector] public List<int> turnOrder;
+    public int currentPlayerTurn;
 
     //Dice info
     public int numberOfDice = 4;
@@ -22,7 +24,7 @@ public class GameStateManager : MonoBehaviour
     [HideInInspector] public List<Rigidbody> dieRBList;
     [HideInInspector] public List<int> dicePool;
 
-    //Cam info
+    //Camera info
     public GameObject _camControllerOBJ;
     [HideInInspector] public CameraStateManager camController;
 

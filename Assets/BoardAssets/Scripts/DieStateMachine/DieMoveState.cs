@@ -75,6 +75,7 @@ public class DieMoveState : DieBaseState
     }
     void Rotate(DieStateManager die)
     {
+        //TODO:  Make the dice gradually rotate instead of just instantly snapping to rotation.
         die.transform.eulerAngles = _rotTarget; //Quaternion.Slerp(_rotInit, _rotTarget, _t);
     }
 
