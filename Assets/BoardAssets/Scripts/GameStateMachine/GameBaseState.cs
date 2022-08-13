@@ -2,9 +2,11 @@ using UnityEngine;
 
 public abstract class GameBaseState
 {
-    public abstract void EnterState(GameStateManager player);
+    public string stateName;
 
-    public abstract void UpdateState(GameStateManager player);
+    public abstract void EnterState(GameStateManager game);
 
-    public abstract void ExitState(GameStateManager player);
+    public abstract void UpdateState(GameStateManager game);
+
+    public abstract void ExitState(GameStateManager game);
 }

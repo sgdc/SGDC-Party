@@ -24,6 +24,9 @@ public class GameStateManager : MonoBehaviour
     [HideInInspector] public List<Rigidbody> dieRBList;
     [HideInInspector] public List<int> dicePool;
 
+    public int playerChoosing = 0;
+    public GameObject DM;
+
     //Camera info
     public GameObject _camControllerOBJ;
     [HideInInspector] public CameraStateManager camController;
@@ -44,16 +47,18 @@ public class GameStateManager : MonoBehaviour
 
     public void SwitchState(GameBaseState state)
     {
-        Debug.Log("Entering State");
+        Debug.Log("Beginning to switch from " + currentState.stateName + " to " + state.stateName + "...");
         currentState.ExitState(this);
         currentState = state;
         currentState.EnterState(this);
-        Debug.Log("State Entered");
+        Debug.Log("State successfully switched");
     }
+
     void InitializeVariables()
     {
         Debug.Log("Game State Manager: Init Vars Start");
         camController = _camControllerOBJ.GetComponent<CameraStateManager>();
         Debug.Log("Init Vars Done");
     }
+
 }

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4351430134113233937}
   m_Layer: 0
   m_Name: RollingD6
-  m_TagString: Untagged
+  m_TagString: Die
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -130,3 +130,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
   tr: {fileID: 0}
+  ID: 0
+  numDice: 0
+  rollSelectCam: {fileID: 0}

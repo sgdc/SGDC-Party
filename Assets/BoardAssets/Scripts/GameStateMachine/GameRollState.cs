@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class GameRollState : GameBaseState
 {
-
     int _diceRemaining;
     float _maxRollInterval = 0.5f;
     float _rollInterval;
@@ -19,7 +18,8 @@ public class GameRollState : GameBaseState
 
     public override void EnterState(GameStateManager game)
     {
-        Debug.Log("Entered Roll State");
+        stateName = "GameRollState";
+        Debug.Log("Entering State: " + stateName);
         _InitializeVariables(game);
         _RollDie(game);
     }
@@ -32,6 +32,7 @@ public class GameRollState : GameBaseState
 
     public override void ExitState(GameStateManager game)
     {
+        Debug.Log("Exiting State: " + stateName);
         _GetDiceValues(game);
         game.camController.TransitionCam(game.camController.rollSelectCam);
         _SetDiceStates(game);
@@ -107,5 +108,6 @@ public class GameRollState : GameBaseState
         {
             _die.GetComponent<DieStateManager>().SwitchState(_die.GetComponent<DieStateManager>().moveState);
         }
+        game.SwitchState(game.rollSelState);
     }
 }

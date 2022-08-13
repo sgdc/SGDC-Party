@@ -24,6 +24,7 @@ public class PlayerStateManager : MonoBehaviour
         //name of character?
         //other stats?
 
+    //MenuInfo
 
     void Start()
     {
