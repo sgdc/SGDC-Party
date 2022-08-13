@@ -665,6 +665,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &781745226 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6249382081886235227, guid: 7943599308fa2a842b3c7d2366466d6c, type: 3}
+  m_PrefabInstance: {fileID: 6249382081876910920}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 359877a934704fc4c8379b264e60e79d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &809551766
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -996,7 +1007,7 @@ GameObject:
   - component: {fileID: 1549839734}
   m_Layer: 0
   m_Name: GameController
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1013,19 +1024,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aecff24e4ac8dc4f9118d617e5d3b2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberofPlayers: 0
+  numberOfPlayers: 0
   playerMaterialList:
   - {fileID: 2100000, guid: 8ac23077330927a448a83b05f5d4c74f, type: 2}
   - {fileID: 2100000, guid: 27c3e84dcb84174419aad0f15f0f8d24, type: 2}
   - {fileID: 2100000, guid: ad26e88c9b446814a81ce4d87bbc437b, type: 2}
   - {fileID: 2100000, guid: a840d64de20af9643961d2c8a9e39cd8, type: 2}
   turnOrder: 
+  playerList:
+  - {fileID: 781745226}
+  playerStandings: 
   currentPlayerTurn: 0
   numberOfDice: 4
   dieObject: {fileID: 4351430134113233948, guid: 9fda9bc28c407184d8342ef726dc4fc5, type: 3}
   diceSpawnTransform: {fileID: 243720530}
   dieRBList: []
   dicePool: 
+  playerChoosing: {fileID: 0}
+  DM: {fileID: 243720529}
   _camControllerOBJ: {fileID: 1714154210}
   camController: {fileID: 0}
 --- !u!4 &1549839733
@@ -1152,6 +1168,10 @@ PrefabInstance:
       propertyPath: currentTile
       value: 
       objectReference: {fileID: 992783511}
+    - target: {fileID: 6249382081886235227, guid: 7943599308fa2a842b3c7d2366466d6c, type: 3}
+      propertyPath: playerColor
+      value: 
+      objectReference: {fileID: 2100000, guid: 8ac23077330927a448a83b05f5d4c74f, type: 2}
     - target: {fileID: 6249382081886235228, guid: 7943599308fa2a842b3c7d2366466d6c, type: 3}
       propertyPath: m_RootOrder
       value: 2
