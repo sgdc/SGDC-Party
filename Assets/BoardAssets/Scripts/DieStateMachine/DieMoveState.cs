@@ -39,7 +39,8 @@ public class DieMoveState : DieBaseState
     }
     void SetTargetRot(DieStateManager die)
     {
-        Debug.Log("Die "+die.ID+" value is: "+die.GetSideFaceUp());
+        die.roll = die.GetSideFaceUp();
+        Debug.Log("Die "+die.ID+" value is: "+die.roll);
         switch (die.GetSideFaceUp())
         {
             case 1:

@@ -12,19 +12,21 @@ public class GameStateManager : MonoBehaviour
     public GameRollSelectionState rollSelState = new GameRollSelectionState();
 
     //Player and Turn info
-    public int numberofPlayers;
+    public int numberOfPlayers;
     public List<Material> playerMaterialList;
     [HideInInspector] public List<int> turnOrder;
+    public List<PlayerStateManager> playerList;
+    public List<int> playerStandings;
     public int currentPlayerTurn;
 
     //Dice info
     public int numberOfDice = 4;
     public Rigidbody dieObject;
     public Transform diceSpawnTransform; 
-    [HideInInspector] public List<Rigidbody> dieRBList;
+    public List<Rigidbody> dieRBList;
     [HideInInspector] public List<int> dicePool;
 
-    public int playerChoosing = 0;
+    public PlayerStateManager playerChoosing;
     public GameObject DM;
 
     //Camera info
@@ -38,6 +40,13 @@ public class GameStateManager : MonoBehaviour
         InitializeVariables();
         currentState = rollState;
         currentState.EnterState(this);
+
+        numberOfPlayers = playerList.Count;
+        playerStandings = new List<int>();
+        for(int i = 0; i < numberOfPlayers; i++)
+        {
+            playerStandings.Add(i+1);
+        }
     }
 
     void Update()
@@ -59,6 +68,11 @@ public class GameStateManager : MonoBehaviour
         Debug.Log("Game State Manager: Init Vars Start");
         camController = _camControllerOBJ.GetComponent<CameraStateManager>();
         Debug.Log("Init Vars Done");
+    }
+
+    public string _GetCurrentStateName()
+    {
+        return currentState.stateName;
     }
 
 }

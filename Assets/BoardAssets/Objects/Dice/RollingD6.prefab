@@ -128,8 +128,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd29745f274da0f4094eed3c3cf0e710, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  outerMaterial: {fileID: -4523815037804129231, guid: 0c8f5318efd9b5e468427ad0b92a36be, type: 3}
   rb: {fileID: 0}
   tr: {fileID: 0}
   ID: 0
   numDice: 0
   rollSelectCam: {fileID: 0}
+  roll: 0

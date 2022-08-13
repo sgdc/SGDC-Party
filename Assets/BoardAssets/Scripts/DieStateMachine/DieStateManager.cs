@@ -9,6 +9,8 @@ public class DieStateManager : MonoBehaviour
     public DieMoveState moveState = new DieMoveState();
     public DieDisplayState displayState = new DieDisplayState();
 
+    public Material outerMaterial;
+
     [HideInInspector]
     public Rigidbody rb;
     [HideInInspector]
@@ -20,6 +22,8 @@ public class DieStateManager : MonoBehaviour
 
     [HideInInspector]
     public Camera rollSelectCam;
+
+    public int roll;
 
     void Start()
     {

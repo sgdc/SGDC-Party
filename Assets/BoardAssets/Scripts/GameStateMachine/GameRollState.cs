@@ -99,7 +99,7 @@ public class GameRollState : GameBaseState
             _countDown = _maxCountDown;
 
         if (_countDown <= 0 || _maxCountDown <= 0)
-            game.SwitchState(game.idleState);
+            game.SwitchState(game.rollSelState);
     }
 
     void _SetDiceStates(GameStateManager game)
@@ -108,6 +108,6 @@ public class GameRollState : GameBaseState
         {
             _die.GetComponent<DieStateManager>().SwitchState(_die.GetComponent<DieStateManager>().moveState);
         }
-        game.SwitchState(game.rollSelState);
+        //game.SwitchState(game.rollSelState);
     }
 }

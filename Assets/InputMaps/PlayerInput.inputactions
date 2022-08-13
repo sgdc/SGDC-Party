@@ -15,7 +15,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Select",
+                    "name": "SelectDie",
                     "type": "Button",
                     "id": "e2c93c81-1974-41d8-bb7d-c93b691fa9f4",
                     "expectedControlType": "Button",
@@ -109,7 +109,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
-                    "action": "Select",
+                    "action": "SelectDie",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -120,7 +120,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Joystick",
-                    "action": "Select",
+                    "action": "SelectDie",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -131,7 +131,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Select",
+                    "action": "SelectDie",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
