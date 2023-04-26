@@ -19,8 +19,6 @@ public class PlayerStateManager : MonoBehaviour
     public int roll = 0;
     public int toMove = 0;
 
-    
-
     void Start()
     {
         currentState = idleState;
